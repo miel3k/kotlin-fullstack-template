@@ -1,0 +1,12 @@
+ktor:
+  deployment:
+    host: "0.0.0.0"
+    port: 8080
+  application:
+    modules:
+      - ApplicationKt.module
+
+database:
+  url: "jdbc:postgresql://localhost:5432/taskapp"
+  user: "dev"
+  password: "dev"

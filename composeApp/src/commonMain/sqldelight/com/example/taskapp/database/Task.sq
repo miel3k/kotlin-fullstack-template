@@ -1,0 +1,33 @@
+CREATE TABLE TaskEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    description TEXT,
+    completed INTEGER NOT NULL DEFAULT 0,
+    createdAt INTEGER NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM TaskEntity
+ORDER BY createdAt DESC;
+
+selectById:
+SELECT *
+FROM TaskEntity
+WHERE id = ?;
+
+insert:
+INSERT OR REPLACE INTO TaskEntity(id, title, description, completed, createdAt)
+VALUES (?, ?, ?, ?, ?);
+
+updateCompleted:
+UPDATE TaskEntity
+SET completed = ?
+WHERE id = ?;
+
+delete:
+DELETE FROM TaskEntity
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM TaskEntity;
